@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cd ~</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Menu items -->
+        <nav>
+            <ul>
+                <li class="pages"><a href="https://github.com/magnafoco"><img src="img/icon-github.gif" class="logos" alt="Github"></a></li>
+                <li class="pages"><a href="https://www.linkedin.com/in/cristiancastrechini/"><img src="img/icon-linkedin.gif" class="logos" alt="LinkedIn"></a></li>
+            </ul>
+        </nav>
+        <div class="intro">
+        <!-- Introduction -->
+        <h1>Cristian Castrechini</h1>
+        <p>Cybersecurity Consultant | Penetration Tester | CTF player</p>
+        </div>
+    </header>
+
+    <!-- "Learn more" Button -->
+    <div class="learn-more-button-container">
+        <a href="#" class="button" onclick="openPopup()">Learn more</a>
+    </div>
+    <!-- Popup Section -->
+    <div id="popup" class="popup">
+        <!-- Close Button -->
+        <button class="close-button" onclick="closePopup()">X</button>
+        <!-- Popup Content -->
+        <!-- Biography Section -->
+        <div class="bio">
+            <p>Hi magnafoco 🔥 here,<br>
+            a simple guy driven by an innate interest and curiosity in how technology works and what's behind it, I began my career in information technology.<br>
+            It all began as a <b>HelpDesk</b> role, later became a <b>System Administrator</b> assuming the role of team leader and then landed in Cybersecurity as a <b>Penetration tester</b>.<br><br>
+            Below you can find my certifications and download my CV.<br><br>
+            I invite you to visit my social profiles such as LinkedIn and GitHub to view my projects and of course feel free to add me.<br>
+            See you soon in some Hacker's event 👋
+        </div>
+        <!-- Certifications -->
+        <div class="certs-container">
+            <ul>
+                <li class="pages"><a href="files/INE-eJPT-Certificate.pdf" target="_blank"><img src="img/ejpt.png" alt="Junior Penetration Tester" class="certs"></a></li>
+                <li class="pages"><a href="files/ECC-CEH-Certificate.pdf" target="_blank"><img src="img/ceh.png" alt="Certified Ethical Hacker" class="certs"></a></li>
+                <li class="pages"><a href="files/HCL-App-Scan-on-Cloud-L1.pdf" target="_blank"><img src="img/appscan.png" alt="App Scan on Cloud" class="certs"></a></li>
+                <li class="pages"><a href="files/Syneto-CP-Certificate.pdf" target="_blank"><img src="img/syneto.png" alt="Syneto Certified Professional" class="certs"></a></li>
+                <li class="pages"><a href="files/QNAP-QTS-essential.pdf" target="_blank"><img src="img/qnap-essential.png" alt="QNAP QTS essential" class="certs"></a></li>
+                <li class="pages"><a href="files/QNAP-QTS-architectural.pdf" target="_blank"><img src="img/qnap-architectural.png" alt="QNAP QTS architectural" class="certs"></a></li>
+            </ul>
+        </div>
+        <!-- Download CV Button -->
+        <a id="downloadLink" style="display: none;"></a>
+        <button onclick="downloadCV()" class="button center-button">Download CV</button>
+    </div>
+
+</body>
+
+<script>
+    // Function to open the popup
+function openPopup() {
+    const popup = document.getElementById("popup");
+    const intro = document.querySelector(".intro");
+    const learnMoreButton = document.querySelector(".learn-more-button-container");
+    
+    popup.style.display = "block";
+    intro.style.display = "none"; // Nascondi il testo con il box della bio
+    learnMoreButton.style.display = "none"; // Nascondi il bottone "Learn more"
+    
+    // Aggiungi un event listener per la chiusura quando si clicca il tasto X
+    const closeButton = document.querySelector(".close-button");
+    closeButton.addEventListener("click", function() {
+        popup.style.display = "none";
+        intro.style.display = "block"; // Mostra nuovamente il testo con il box della bio
+        learnMoreButton.style.display = "block"; // Mostra nuovamente il bottone "Learn more"
+        closeButton.removeEventListener("click", this);
+    });
+}
+
+function closePopup(event) {
+    const popup = document.getElementById("popup");
+    if (event.target === popup) {
+        popup.style.display = "none";
+        
+        // Mostra nuovamente il testo con il box della bio e il bottone "Learn more"
+        const intro = document.querySelector(".intro");
+        const learnMoreButton = document.querySelector(".learn-more-button-container");
+        intro.style.display = "block";
+        learnMoreButton.style.display = "block";
+    }
+}
+
+
+    // Function to handle the download CV button
+function downloadCV() {
+        const downloadLink = document.getElementById("downloadLink");
+        downloadLink.href = "files/Resume.pdf";
+        downloadLink.click();
+}
+</script>
+
+</html>
