@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div id="scroll-progress-container">
+    <div id="scroll-progress-bar"></div>
+  </div>  
+
+  <div class="terminal">
+    <div class="line"><span class="prompt">&gt;</span> {{ page.title }}</div>
+    <div class="line output-text">{{ content }}</div>
+  </div>
+
+  <div id="lightbox">
+    <img src="" alt="Zoomed image">
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = lightbox.querySelector('img');
+
+      document.querySelectorAll('.output-text img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightbox.style.display = 'flex';
+        });
+      });
+
+      lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+      });
+    });
+  </script>
+
+</body>
+</html>
