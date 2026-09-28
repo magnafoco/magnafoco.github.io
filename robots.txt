@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://magnafoco.github.io/sitemap.xml
